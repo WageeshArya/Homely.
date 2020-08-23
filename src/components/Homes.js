@@ -105,7 +105,6 @@ export const Homes = () => {
                 <p className="address">{home.address}</p>
                 <p className="pin">{home.location}</p>
                 <p className="beds">{home.beds} beds, {home.baths} baths</p>
-                {/* <p className="baths"><strong>Beds:</strong> {home.baths}</p> */}
               </div>
               <div className="propImg">
                 <div className="opaqueOverlay"></div>

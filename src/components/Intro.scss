@@ -15,11 +15,14 @@
       .text {
         margin-bottom: 0.5rem;
         position: relative;
-        // overflow: hidden;
+        overflow: hidden;
         span {
+          display: inline-block;
           font-family: 'Open Sans', sans-serif;
           position: relative;
           font-size: 2rem;
+          font-weight: 700;
+          letter-spacing: 0.1rem;
           line-height: 3rem;
           z-index: 5;
           color: $white;
@@ -34,6 +37,7 @@
         text-decoration: none;
         color: $black;
         display: flex;
+        width: 15%;
         align-items: center;
         flex-direction: row;
         p {

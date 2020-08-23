@@ -52,7 +52,7 @@
         font-family: 'Open Sans', sans-serif;
         color: white;
         position: absolute;
-        z-index: 1;
+        z-index: 2;
         margin: 2rem;
         line-height: 1rem;
         .address {
@@ -84,6 +84,10 @@
           background-color: rgba(0,0,0,0.5);
           width: 33.3333%;
           height: 50%;
+          z-index: 1;
+          &:hover {
+            background-color: rgba(0,0,0,0.75);
+          }
         }
         img {
           width: 100%;

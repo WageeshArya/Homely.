@@ -1,0 +1,56 @@
+@import '../Variables.scss';
+.introOverlay {
+  .top {
+    height: 50vh;
+    height: calc(var(--vh, 1vh) * 5);
+    position: absolute;
+    width: 100%;
+    z-index: 5;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: repeat(3, 1fr);
+    .topOverlay {
+      position: absolute;
+      width: 33.3333%;
+      height: 100%;
+      background: $black;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      &:nth-of-type(2) {
+        left: 33.33%;
+      }
+      &:nth-child(3) {
+        left: 66.66%;
+      }
+    }
+    
+    
+  }
+  .bottom {
+    height: 50vh;
+    height: calc(var(--vh, 1vh) * 5);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+    .bottomOverlay {
+      position: absolute;
+      width: 33.3333%;
+      height: 100%;
+      background: $black;
+      bottom: 0; 
+      right: 66.66%;
+      &:nth-of-type(2) {
+       right: 33.33%;    
+      }
+      &:nth-of-type(3) {
+        right: 0;
+      }
+    }
+    
+  }
+}
