@@ -1,0 +1,60 @@
+@import '../Variables.scss';
+
+.introContainer {
+  height: 50vh;
+  height: calc(var(--vh, 1vh) * 5);
+  background-color: $white;
+  .introText {
+    height: 40vh;
+    margin: 0 6rem;
+    .texts {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+      .text {
+        margin-bottom: 0.5rem;
+        position: relative;
+        // overflow: hidden;
+        span {
+          font-family: 'Open Sans', sans-serif;
+          position: relative;
+          font-size: 2rem;
+          line-height: 3rem;
+          z-index: 5;
+          color: $white;
+          mix-blend-mode: difference;
+        }
+      }
+    }
+    .knowMore {
+      font-family: 'Open Sans', sans-serif;
+      margin-top: 2rem;
+      a {
+        text-decoration: none;
+        color: $black;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        p {
+          text-decoration: none;
+          color: $black;
+          font-size: 1.5rem;
+        }
+        svg {
+          height: 1.5rem;
+          width: 1.5rem;
+          border: 2px solid $black;
+          border-radius: 50%;
+          padding: 0.75rem;
+          margin: 1rem;
+          transition: all 0.2s ease-in-out;
+          &:hover {
+            background-color:$black;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
