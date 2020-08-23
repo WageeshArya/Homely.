@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Header from './components/Header';
 import Intro from './components/Intro';
+import Homes from './components/Homes';
 import './App.scss';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     <div className="App">
       <Header />
       <Intro />
+      <Homes />
     </div>
   );
 }

@@ -1,0 +1,105 @@
+@import '../Variables.scss';
+.homes {
+  height: 50vh;
+  height: calc(var(--vh, 1vh) * 5);
+  // overflow-y: hidden;
+  // overflow-x: scroll;
+  .rightArrow {
+    position: absolute;
+    bottom: 2%;
+    right: 3%;
+    z-index: 5;
+    color: $white;
+    &:hover {
+      cursor: pointer;
+      color: $black;
+      background-color: rbga(255,255,255,0.75);
+    }
+    svg {
+      width: 30px;
+      height: 30px;
+      padding: 0.5rem;
+      background-color: rgba(0,0,0,0.75);
+      border-radius: 50%;
+    }
+  }
+  .leftArrow {
+    position: absolute;
+    bottom: 2%;
+    left: 3%;
+    z-index: 5;
+    color: $white;
+    &:hover {
+      cursor: pointer;
+      color: $black;
+      background-color: rbga(255,255,255,0.75);
+    }
+    svg {
+      width: 30px;
+      height: 30px;
+      padding: 0.5rem;
+      transform: rotate(180deg);
+      background-color: rgba(0,0,0,0.75);
+      border-radius: 50%;
+    }
+  }
+  .panels {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    height: 100%;
+    .home {
+      .details {
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+        position: absolute;
+        z-index: 1;
+        margin: 2rem;
+        line-height: 1rem;
+        .address {
+          font-size: 1.5rem;
+          font-weight: 800;
+        }
+        .pin {
+          font-size: 1.25rem;
+          font-weight: 700;
+        }
+        .beds {
+          font-size: 1.25rem;
+        }
+        .baths {
+          font-size: 1.25rem;
+        }
+      }
+      .propImg {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        animation: 0.5s loadAnim ease;
+        transition: all 0.4s cubic-bezier(0.6, -0.05, 0.1, 0.99);
+        z-index: -1;
+        .opaqueOverlay {
+          position: absolute;
+          background-color: rgba(0,0,0,0.5);
+          width: 33.3333%;
+          height: 50%;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+@keyframes loadAnim {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
