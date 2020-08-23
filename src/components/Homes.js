@@ -7,48 +7,54 @@ export const Homes = () => {
     {
       id: 1,
       address: "944 Avalant Pines",
-      location: "California, USA - 482012",
-      price: 1750000,
+      state: "California",
+      pin: '482012',
+      price: '1,750,000',
       beds: 6,
       baths: 6
     },
     {
       id: 2,
       address: "1231 Cameroon Park",
-      location: "San Diego, USA - 912024",
-      price: 750000,
+      state: "San Diego",
+      pin: '912024',
+      price: "750,000",
       beds: 4,
       baths: 4
     },
     {
       id: 3,
       address: "91 Auburn Street",
-      location: "Ohio, USA - 614113",
-      price: 440000,
+      state: "Ohio",
+      pin: "614113",
+      price: "440,000",
       beds: 6,
       baths: 2
     },
     {
       id: 4,
       address: "4421 B Town Street",
-      location: "North Carolina, USA - 482012",
-      price: 890000,
+      state: "North Carolina",
+      pin: "482012",
+      price: "890,000",
       beds: 6,
       baths: 4
     },
     {
       id: 5,
       address: "504 Amber Avenue",
-      location: "Washington, USA - 300120",
-      price: 1100000,
+      state: "Washington",
+      pin: "300120",
+      price: "1,100,000",
       beds: 4,
       baths: 4
     },
     {
       id: 6,
       address: "991 Calvert Street",
-      price: 800000,
-      location: "North Carolina, USA - 840221",
+      location: "North Carolina",
+      pin: "840221",
+      price: "800,000",
       beds: 3,
       baths: 2
     }
@@ -58,7 +64,6 @@ export const Homes = () => {
   const [displayHomes, setDisplayHomes] = useState(allHomes.slice(startHome, endHome));
   
   useEffect(() => {
-    console.log(startHome, endHome);
   }, [displayHomes])
 
   const nextHome = () => {
@@ -103,8 +108,15 @@ export const Homes = () => {
             <div className="home" key={home.id}>
               <div className="details">
                 <p className="address">{home.address}</p>
-                <p className="pin">{home.location}</p>
+                <p className="pin">{home.state} - {home.pin}</p>
                 <p className="beds">{home.beds} beds, {home.baths} baths</p>
+              </div>
+              <div className="detailsMobile">
+                <p className="address">{home.address}</p>
+                <p className="state">{home.state}</p>
+                <p className="pin">{home.pin}</p>
+                <p className="beds">{home.beds} beds,</p>
+                <p className="baths">{home.baths} baths</p>
               </div>
               <div className="propImg">
                 <div className="opaqueOverlay"></div>

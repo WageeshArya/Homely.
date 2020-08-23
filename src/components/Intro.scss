@@ -37,7 +37,7 @@
         text-decoration: none;
         color: $black;
         display: flex;
-        width: 15%;
+        width: 20%;
         align-items: center;
         flex-direction: row;
         p {
@@ -57,6 +57,103 @@
             background-color:$black;
             color: $white;
           }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 1500px) {
+  .introContainer {
+    .introText{
+      .texts {
+        .text {
+
+        }
+      }
+      .knowMore {
+        a {
+          width: 25%;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 1100px) {
+  .introContainer {
+    .introText{
+      .texts {
+        .text {
+
+        }
+      }
+      .knowMore {
+        a {
+          width: 40%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .introContainer {
+    .introText{
+      margin: 0 2rem;
+      .texts {
+        .text {
+
+        }
+      }
+      .knowMore {
+        a {
+          width: 40%;
+          p {
+            font-size: 1rem;
+          }
+          svg {
+            width: 15px;
+            height: 15px;
+            padding: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  .introContainer {
+    .introText{
+      .texts {
+        .text {
+
+        }
+      }
+      .knowMore {
+        a {
+          width: 60%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .introContainer {
+    .introText{
+      .texts {
+        .text {
+          span {
+            font-size: 1.25rem;
+            line-height: 1.5rem;
+          }
+        }
+      }
+      .knowMore {
+        a {
+          width: 80%;
         }
       }
     }

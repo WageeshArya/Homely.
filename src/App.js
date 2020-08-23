@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import gsap, { Power4 } from 'gsap';
+import gsap from 'gsap';
 import Header from './components/Header';
 import Intro from './components/Intro';
 import Homes from './components/Homes';
@@ -20,7 +20,7 @@ function App() {
       y: 75,
       ease: "power4.out",
       delay: 0.5,
-      skewY: 7,
+      skewY: 10,
       stagger: {
         amount: 0.3
       }

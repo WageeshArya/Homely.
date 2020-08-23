@@ -44,3 +44,21 @@
     } 
   }
 }
+
+@media(max-width: 700px) {
+  .header {
+    .container {
+      margin: 2rem;
+      .containerDiv {
+        .logo {
+          a {
+            font-size: 2rem;
+          }
+        }
+      }
+      .hamburger {
+
+      }
+    }
+  }
+}
