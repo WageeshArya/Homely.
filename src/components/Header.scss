@@ -27,7 +27,9 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        z-index: 8;
         span {
+          z-index: 8;
           margin-bottom: 0.3rem;
           background: $black;
           height: 2px;

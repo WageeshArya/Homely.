@@ -72,25 +72,20 @@ export const Homes = () => {
 
     if(startHome >= 4) {
       setDisplayHomes([...allHomes.slice(startHome, 6), ...allHomes.slice(0, endHome + 1)]);
-      console.log(displayHomes);
     }
     else {
       setDisplayHomes(allHomes.slice(startHome, endHome));
-      console.log(displayHomes);
     }
   }
 
   const prevHome = () => {
     setStartHome(startHome === 0 ? 6 : startHome - 1);
     setEndHome(endHome === 0 ? 6 : endHome - 1);
-    console.log(startHome, endHome);
     if(endHome < 3 ) {
       setDisplayHomes([...allHomes.slice(startHome-1, 6), ...allHomes.slice(0, endHome)]);
-      console.log(displayHomes);
     }
     else {
       setDisplayHomes(allHomes.slice(startHome, endHome));
-      console.log(displayHomes);
     }
   }
   return (
