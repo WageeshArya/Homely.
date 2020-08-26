@@ -12,10 +12,6 @@ const Nav = ({ opened, setOpened }) => {
     setTimeout(() => {
       setOpened(false);
     },1000);
-    // gsap.to(".nav", 1, {
-    //   y: -(window.innerHeight / 2),
-    //   ease: 'expo.out'
-    // });
   }
 
   return (

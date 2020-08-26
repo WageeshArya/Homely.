@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Intro from './components/Intro';
 import Homes from './components/Homes';
 import IntroOverlay from './components/IntroOverlay';
+import Sell from './components/Sell';
 import './App.scss';
 
 function App() {
@@ -41,9 +42,13 @@ function App() {
       ease: 'expo.inOut',
       delay: -1.75,
       stagger: 0.3
+    }).to("body", 0, {
+      css: {
+        overflowY: 'scroll'
+      }
     });
 
-  }, [])
+  }, []);
 
   return (
     <div className="App">
@@ -51,6 +56,7 @@ function App() {
       <Header />
       <Intro />
       <Homes />
+      <Sell />
     </div>
   );
 }

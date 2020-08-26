@@ -1,6 +1,8 @@
 body {
   margin: 0;
   visibility: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden
 }
 .hide {
   display: none;

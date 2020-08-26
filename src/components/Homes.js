@@ -52,19 +52,43 @@ export const Homes = () => {
     {
       id: 6,
       address: "991 Calvert Street",
-      location: "North Carolina",
+      state: "North Carolina",
       pin: "840221",
       price: "800,000",
       beds: 3,
       baths: 2
     }
   ];
+
+  const [hovered, setHovered] = useState(false);
   const [startHome, setStartHome] = useState(0);
   const [endHome, setEndHome] = useState(3)
   const [displayHomes, setDisplayHomes] = useState(allHomes.slice(startHome, endHome));
   
+
+  const imgEnter = () => {
+    setHovered(true);
+    console.log(hovered);
+  }
+
+  const imgLeave = () => {
+    setHovered(false);
+    console.log(hovered);
+  }
+
   useEffect(() => {
   }, [displayHomes])
+
+  const prevHome = () => {
+    setStartHome(startHome === 0 ? 6 : startHome - 1);
+    setEndHome(endHome === 0 ? 6 : endHome - 1);
+    if(endHome < 3 ) {
+      setDisplayHomes([...allHomes.slice(startHome-1, 6), ...allHomes.slice(0, endHome)]);
+    }
+    else {
+      setDisplayHomes(allHomes.slice(startHome, endHome));
+    }
+  }
 
   const nextHome = () => {
     setStartHome(startHome === 6 ? 0 : startHome + 1);
@@ -77,17 +101,7 @@ export const Homes = () => {
       setDisplayHomes(allHomes.slice(startHome, endHome));
     }
   }
-
-  const prevHome = () => {
-    setStartHome(startHome === 0 ? 6 : startHome - 1);
-    setEndHome(endHome === 0 ? 6 : endHome - 1);
-    if(endHome < 3 ) {
-      setDisplayHomes([...allHomes.slice(startHome-1, 6), ...allHomes.slice(0, endHome)]);
-    }
-    else {
-      setDisplayHomes(allHomes.slice(startHome, endHome));
-    }
-  }
+  
   return (
     <section className="homes">
       <div className="leftArrow">
@@ -100,7 +114,7 @@ export const Homes = () => {
         {
           displayHomes.map(home => {
             return (
-            <div className="home" key={home.id}>
+            <div className="home" key={home.id} onMouseEnter={imgEnter} onMouseLeave={imgLeave}>
               <div className="details">
                 <p className="address">{home.address}</p>
                 <p className="pin">{home.state} - {home.pin}</p>
@@ -114,7 +128,9 @@ export const Homes = () => {
                 <p className="baths">{home.baths} baths</p>
               </div>
               <div className="propImg">
-                <div className="opaqueOverlay"></div>
+                <div className="opaqueOverlay">
+                  <div className={hovered ? "viewBtn" : "hide"}><a href="/">View</a></div>
+                </div>
                 <img src={require(`../images/${home.id}.jpg`)} alt={`home ${home.id}`}/>
               </div>
             </div>
