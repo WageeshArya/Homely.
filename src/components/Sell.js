@@ -1,7 +1,23 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Sell.scss';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 const Sell = () => {
+  let sellHeader = useRef(null);
+  gsap.registerPlugin(ScrollTrigger);
+  useEffect(() => {
+    gsap.from(sellHeader.current, 1, {
+      autoAlpha: 0,
+      duration: 1,
+      ease: 'expo.inOut',
+      scrollTrigger: {
+        trigger: sellHeader.current,
+        start: 'top center',
+        end: 'bottom center',
+        markers: true
+      }
+    })
+  }, []);
 
   const allQuotes = [
   {
@@ -60,7 +76,7 @@ const Sell = () => {
   return (
     <section className="sell">
         <div className="sellHeader">
-          <div className="sellHeaderText">
+          <div className="sellHeaderText" ref={sellHeader}>
             <h3 className="sellh3">Talk to our leading experts</h3>
             <h4 className="sellh4">Get help finding or selling a Homely home from our industry leading experts.</h4>
           </div>
