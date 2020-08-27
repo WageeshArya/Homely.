@@ -20,7 +20,7 @@ function App() {
     tl.from(".texts span", 1, {
       y: 75,
       ease: "power4.out",
-      delay: 0.5,
+      delay: 0.3,
       skewY: 10,
       stagger: {
         amount: 0.3
@@ -28,7 +28,7 @@ function App() {
     }).to(".topOverlay", 1, {
       height: 0,
       ease: 'expo.inOut',
-      stagger: 0.3
+      stagger: 0.2
     }).to(".bottomOverlay", 1, {
       width: 0,
       ease: 'expo.inOut',

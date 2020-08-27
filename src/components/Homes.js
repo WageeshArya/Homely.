@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { ReactComponent as Arrow } from '../icons/arrow-right-solid.svg';
 import './Homes.scss';
+import gsap from 'gsap';
+import { TimelineLite } from 'gsap';
 export const Homes = () => {
 
   const allHomes = [
@@ -65,6 +67,39 @@ export const Homes = () => {
   const [endHome, setEndHome] = useState(3)
   const [displayHomes, setDisplayHomes] = useState(allHomes.slice(startHome, endHome));
   
+  useEffect(() => {
+    // const imgTween = 
+  }, [displayHomes]);
+  
+  const transform = (id) => {
+    const home = document.getElementById(id);
+    
+    const domRect = home.getBoundingClientRect();
+    console.log(domRect);
+    let tl = new TimelineLite();
+
+    tl.to(`#panel-${id}`, {
+      height: '100%',
+      width: '100%',
+      position: 'fixed',
+      zIndex: 9,
+      backgroundColor: 'white'
+    })
+    .fromTo(`#home-${id}`, 
+      {
+        position: 'absolute',
+        zIndex: 10,
+        height: '400px',
+        width: '400px'
+      }, 
+      {
+        position: 'absolute',
+        zIndex: 10,
+        height: '500px',
+        width: '500px'
+      }
+    )
+  }
 
   const imgEnter = () => {
     setHovered(true);
@@ -76,8 +111,7 @@ export const Homes = () => {
     console.log(hovered);
   }
 
-  useEffect(() => {
-  }, [displayHomes])
+  
 
   const prevHome = () => {
     setStartHome(startHome === 0 ? 6 : startHome - 1);
@@ -114,13 +148,13 @@ export const Homes = () => {
         {
           displayHomes.map(home => {
             return (
-            <div className="home" key={home.id} onMouseEnter={imgEnter} onMouseLeave={imgLeave}>
+            <div className="home" key={home.id} id={`panel-${home.id}`} onMouseEnter={imgEnter} onMouseLeave={imgLeave}>
               <div className="details">
                 <p className="address">{home.address}</p>
                 <p className="pin">{home.state} - {home.pin}</p>
                 <p className="beds">{home.beds} beds, {home.baths} baths</p>
               </div>
-              <div className="detailsMobile">
+              <div className="detailsMobile" id={home.id}>
                 <p className="address">{home.address}</p>
                 <p className="state">{home.state}</p>
                 <p className="pin">{home.pin}</p>
@@ -129,9 +163,9 @@ export const Homes = () => {
               </div>
               <div className="propImg">
                 <div className="opaqueOverlay">
-                  <div className={hovered ? "viewBtn" : "hide"}><a href="/">View</a></div>
+                  <div className={hovered ? "viewBtn" : "hide"}onClick={() => transform(home.id)}><p>View</p></div>
                 </div>
-                <img src={require(`../images/${home.id}.jpg`)} alt={`home ${home.id}`}/>
+                <img id={`home-${home.id}`} src={require(`../images/${home.id}.jpg`)} alt={`home ${home.id}`}/>
               </div>
             </div>
             )

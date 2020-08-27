@@ -7,7 +7,7 @@
   left: 0;
   width: 100%;
   background-color: $yellow;
-  z-index: 6;
+  z-index: 10;
   font-family: 'Open Sans', sans-serif;
   overflow: hidden;
   .close {
@@ -19,7 +19,7 @@
     }
   }
   .navDiv {
-    height: 80%;
+    height: 50vh;
     margin: 0 6rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -33,12 +33,15 @@
       ul {
         display: grid;
         margin: 0;
+        height: 50vh;
+        height: calc(var(--vh, 1vh) * 5);
         padding: 0;
         grid-template-rows: repeat(4, 1fr);
         li {
           display: flex;
           align-items: center;
-          font-size: 1.75rem;
+          line-height: 2rem;
+          font-size: 1rem;
           font-weight: 700;
         }
       }
@@ -53,7 +56,7 @@
       .contactDetails {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 2fr 1fr;
+        grid-template-rows: 1fr 1fr;
         div {
           h4 {
             font-size: 1.25rem;

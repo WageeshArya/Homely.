@@ -1,11 +1,11 @@
 @import '../Variables.scss';
 .sell {
+  scroll-snap-align: start;
   font-family: 'Open sans', sans-serif;
   height: 100vh;
   width: 100%;
   display: grid;
   grid-template-rows: repeat(2,1fr);
-  // opacity: 0;
   .sellHeader {
     margin: 4rem 6rem;
     display: grid;
@@ -30,10 +30,18 @@
       justify-content: flex-end;
       align-items: flex-end;
       margin-right: 8rem;
-      img {
-        width: 20vh;
-        height: 20vh;
+      #icon {
+        opacity: 1;
+        width: 22vh;
+        height: 22vh;
         margin: 2rem;
+        overflow: visible;
+        path {
+          opacity: 1;
+          stroke-dasharray: 1091;
+          stroke-dashoffset: 91;
+          overflow: visible;
+        }
       }
     }
   }
@@ -49,52 +57,160 @@
       }
     }
     .quotesDiv {
-      .quotesLArrow {
-        margin: 2rem;
-        width: 40px;
-        height: 40px;
-        transform: rotate(180deg);
-        &:hover {
-          cursor: pointer;
-        }
-      }
       background-color: $light-gray;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      .quotes {
+      display: grid;
+      grid-template-rows: 1fr 4fr;
+      .testimonials {
+        text-align: center;
+        margin: auto 0;
+        font-family: 'Playfair Display';
+        font-size: 1.25rem;    
+      }
+      .quoteBoxes {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 2rem;
-        height: 50%;
-        margin: 5rem 0;
-        .quote {
-          height: 100%;
-          background-color: $white;
+        grid-template-columns: 1fr 8fr 1fr;
+        .quotesLArrow {
           display: flex;
-          flex-direction: column;
           align-items: center;
           justify-content: center;
-          padding: 1rem;
-          font-family: 'Gentium Basic', serif;
-          .quoteText {
-            text-align: center;
-            margin-bottom: 0.25rem;
-          }
-          .quoter {
-            text-align: center;
-            font-style: italic;
+          width: 100%;
+          height: 100%;
+          img {
+            height: 40px;
+            width: 40px;
+            transform: rotate(180deg); 
+            margin: 2rem;
+            &:hover {
+              cursor: pointer;
+            }
           }
         }
+        .quotes {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-gap: 2rem;
+          height: 50%;
+          margin: 5rem 0;
+          .quote {
+            height: 100%;
+            background-color: $white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            font-family: 'Gentium Basic', serif;
+            transition: all 2s ease-in-out;
+            .quoteText {
+              text-align: center;
+              margin-bottom: 0.25rem;
+            }
+            .quoter {
+              text-align: center;
+              font-style: italic;
+            }
+          }
+        }
+        .quotesRArrow {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          img {
+            height: 40px;
+            width: 40px;
+            margin: 2rem;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      
+    }
+  }
+}
+
+@media (max-width: 1150px) {
+  .sell {
+    .sellHeader {
+      display: flex;
+      align-items: flex-end;
+      @media(max-width: 600px) {
+        margin: 2rem;
+      }
+      .sellh3 {
+        @media(max-width: 600px) {
+          font-size: 20px;
+        }
+      }
+      .sellh4 {
+        @media(max-width: 600px) {
+          font-size: 1.25rem;
+        }
+      }
+   }
+   .homeIcon {
+    display: none;
+
+    img {
+      display: none;
+    }
+  }
+  .quotesFullDiv {
+    display: block;
+     div {
+       display: none;
+       img {
+         display: none;
+       }
+    }
+   .quotesDiv {
+     .testimonials {
+
+     }
+     .quoteBoxes {
+      height: 100%; 
+      display: grid;
+      grid-template-columns: 1fr 8fr 1fr;
+      width: 100;
+      font-size: 0.75rem;
+      margin: auto 0;
+      .quotesLArrow {
+        img {
+          background-color: $black;
+          height: 20px;
+          width: 20px;
+        }
+      }
+      .quotes {
+        grid-gap: 0.5rem;
+        height: auto;
+          .quote {
+            padding: 2rem 0.25rem;
+          }
       }
       .quotesRArrow {
-        margin: 2rem;
-        width: 40px;
-        height: 40px;
-        &:hover {
-          cursor: pointer;
-        }
+          img {
+            background-color: $black;
+            height: 20px;
+            width: 20px;
+          }
       }
+     }
+     
     }
+  }
+  }    
+}
+
+.iconAnimation {
+  animation: iconAnim 1.5s ease forwards;
+}
+
+@keyframes iconAnim {
+  to {
+    stroke-dashoffset: 0;
   }
 }
