@@ -14,7 +14,9 @@ export const Homes = (props) => {
       pin: '482012',
       price: '1,750,000',
       beds: 6,
-      baths: 6
+      baths: 6,
+      long: 145.04922,
+      lat: 8.95112
     },
     {
       id: 2,
@@ -23,7 +25,9 @@ export const Homes = (props) => {
       pin: '912024',
       price: "750,000",
       beds: 4,
-      baths: 4
+      baths: 4,
+      long: 52.23051,
+      lat: 32.15696
     },
     {
       id: 3,
@@ -32,7 +36,9 @@ export const Homes = (props) => {
       pin: "614113",
       price: "440,000",
       beds: 6,
-      baths: 2
+      baths: 2,
+      long: 52.23051,
+      lat: 12.51396
     },
     {
       id: 4,
@@ -41,7 +47,9 @@ export const Homes = (props) => {
       pin: "482012",
       price: "890,000",
       beds: 6,
-      baths: 4
+      baths: 4,
+      long: 134.93196,
+      lat: 55.31781
     },
     {
       id: 5,
@@ -50,7 +58,9 @@ export const Homes = (props) => {
       pin: "300120",
       price: "1,100,000",
       beds: 4,
-      baths: 4
+      baths: 4,
+      long: 117.30358,
+      lat: 53.63698
     },
     {
       id: 6,
@@ -59,7 +69,9 @@ export const Homes = (props) => {
       pin: "840221",
       price: "800,000",
       beds: 3,
-      baths: 2
+      baths: 2,
+      long: 83.25968,
+      lat: 1.44351
     }
   ];
 
@@ -69,7 +81,6 @@ export const Homes = (props) => {
   const [displayHomes, setDisplayHomes] = useState(allHomes.slice(startHome, endHome));
 
   let tl0 = new TimelineLite();
-  let tl1 = new TimelineLite();
   
   useEffect(() => {
     // const imgTween = 
@@ -124,7 +135,7 @@ export const Homes = (props) => {
         top:"50%",
         height: '300px',
         width: '300px',
-        duration: 0.75,
+        duration: 0.5,
         ease: 'expo.out'
       }
     );
@@ -133,7 +144,7 @@ export const Homes = (props) => {
           pathname: `/homes/${id}`,
           state: { home: homeDetails }
         });
-      }, 1000);
+      }, 500);
     // setTimeout(() => {
     //   tl1.to(".introContainer", {
     //     height: 'calc(var(--vh, 1vh) * 5)',
