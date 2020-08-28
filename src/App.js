@@ -10,10 +10,10 @@ function App() {
   const tl = gsap.timeline();
   const [animCompleted, setAnimCompleted] = useState(false);
 
-  gsap.to('body', 0, {css: { visibility: "visible" }});
-  
-
   useEffect(() => {
+
+    gsap.to('body', 0, {css: { visibility: "visible" }});
+
     let vh = window.innerHeight* 0.1;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
     console.log(vh);
@@ -49,16 +49,13 @@ function App() {
         overflowY: 'scroll'
       }
     });
+
     setTimeout(() => {
       setAnimCompleted(true);
-    },3000)
-    // setTimeout(() => {
-    //  tl.reverse();
-    // },1000);
-    // if(window.history.length !== 1) {
-    //   tl.reverse();
-    // }
+    },3000);
     
+    //eslint-disable-next-line
+
   }, []);
 
   return (

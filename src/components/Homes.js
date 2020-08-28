@@ -75,7 +75,11 @@ export const Homes = (props) => {
     // const imgTween = 
   }, [displayHomes]);
   
-  const transform = (id) => {
+  const transform = (homeDetails) => {
+
+    const { id } = homeDetails; 
+    console.log(homeDetails);
+
     const home = document.getElementById(`home-${id}`);
     console.log(home);
     const domRect = home.getBoundingClientRect();
@@ -114,13 +118,21 @@ export const Homes = (props) => {
       {
         position: 'absolute',
         zIndex: 10,
-        xPercent:-50, yPercent:-50, left:"50%", top:"50%",
+        xPercent:-50, 
+        yPercent:-50, 
+        left:"50%", 
+        top:"50%",
         height: '300px',
-        width: '300px'
+        width: '300px',
+        duration: 0.75,
+        ease: 'expo.out'
       }
     );
       setTimeout(() => {
-        props.history.push(`/homes/${id}`);
+        props.history.push({
+          pathname: `/homes/${id}`,
+          state: { home: homeDetails }
+        });
       }, 1000);
     // setTimeout(() => {
     //   tl1.to(".introContainer", {
@@ -226,7 +238,7 @@ export const Homes = (props) => {
               </div>
               <div className="propImg">
                 <div className="opaqueOverlay">
-                  <div className={hovered ? "viewBtn" : "hide"}onClick={() => transform(home.id)}><p>View</p></div>
+                  <div className={hovered ? "viewBtn" : "hide"}onClick={() => transform(home)}><p>View</p></div>
                 </div>
                 <img id={`home-${home.id}`} src={require(`../images/${home.id}.jpg`)} alt={`home ${home.id}`}/>
               </div>
