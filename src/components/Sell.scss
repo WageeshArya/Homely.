@@ -167,6 +167,7 @@
        }
     }
    .quotesDiv {
+     height: 100%;
      .testimonials {
 
      }
@@ -174,7 +175,7 @@
       height: 100%; 
       display: grid;
       grid-template-columns: 1fr 8fr 1fr;
-      width: 100;
+      width: 100%;
       font-size: 0.75rem;
       margin: auto 0;
       .quotesLArrow {
@@ -185,10 +186,10 @@
         }
       }
       .quotes {
+        padding: 2rem 0.25rem;
         grid-gap: 0.5rem;
-        height: auto;
+        height: 50%;
           .quote {
-            padding: 2rem 0.25rem;
           }
       }
       .quotesRArrow {

@@ -35,26 +35,32 @@ const Sell = () => {
 
   const allQuotes = [
   {
+    id: 1,
     quote: 'There has never been better real estate.',
     quoter: 'Estates Insider'
   },
   {
+    id: 2,
     quote: 'The greatest homes in the greatest of locations.',
     quoter: 'NewHomes'
   },
   {
+    id: 3,
     quote: 'Truly Homely.',
     quoter: 'Michael Bond'
   },
   {
+    id: 4,
     quote: 'The best in the business.',
     quoter: 'C & P'
   },
   {
+    id: 5,
     quote: 'The most professional as well as Homely service.',
     quoter: 'H.H.M.'
   },
   {
+    id: 6,
     quote: 'You can never go wrong with Homely homes.',
     quoter: 'Business Professionals'
   }
@@ -115,7 +121,7 @@ const Sell = () => {
                 {
                   displayQuotes.map(quote => {
                     return (
-                      <div className="quote">
+                      <div className="quote" key={quote.id}>
                         <p className="quoteText">"{quote.quote}"</p>
                         <p className="quoter"> <em>—</em> {quote.quoter}</p>
                       </div>

@@ -1,21 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import gsap from 'gsap';
-import Header from './components/Header';
-import Intro from './components/Intro';
-import Homes from './components/Homes';
-import IntroOverlay from './components/IntroOverlay';
-import Sell from './components/Sell';
 import './App.scss';
+import Home from './pages/Home';
+import HomeDetails from './pages/HomeDetails';
 
 function App() {
+  const tl = gsap.timeline();
+  const [animCompleted, setAnimCompleted] = useState(false);
+
+  gsap.to('body', 0, {css: { visibility: "visible" }});
+  
 
   useEffect(() => {
     let vh = window.innerHeight* 0.1;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
+    console.log(vh);
     
-    gsap.to('body', 0, {css: { visibility: "visible" }});
-
-    const tl = gsap.timeline();
 
     tl.from(".texts span", 1, {
       y: 75,
@@ -47,17 +49,33 @@ function App() {
         overflowY: 'scroll'
       }
     });
-
+    setTimeout(() => {
+      setAnimCompleted(true);
+    },3000)
+    // setTimeout(() => {
+    //  tl.reverse();
+    // },1000);
+    // if(window.history.length !== 1) {
+    //   tl.reverse();
+    // }
+    
   }, []);
 
   return (
-    <div className="App">
-      <IntroOverlay />
-      <Header />
-      <Intro />
-      <Homes />
-      <Sell />
-    </div>
+    <Router>
+      <AnimatePresence initial={false} exitBeforeEnter>
+        <div className="App">
+        <Switch>
+          <Route exact path="/" render={
+            (props) => <Home {...props} animCompleted={animCompleted} />
+          } />
+          <Route exact path="/homes/:id" render={
+            (props) => <HomeDetails {...props} timeline={tl} />
+          } />
+        </Switch>
+      </div>
+      </AnimatePresence>
+    </Router>
   );
 }
 

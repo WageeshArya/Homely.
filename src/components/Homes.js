@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+// import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import { ReactComponent as Arrow } from '../icons/arrow-right-solid.svg';
 import './Homes.scss';
-import gsap from 'gsap';
 import { TimelineLite } from 'gsap';
-export const Homes = () => {
+export const Homes = (props) => {
 
   const allHomes = [
     {
@@ -66,39 +67,101 @@ export const Homes = () => {
   const [startHome, setStartHome] = useState(0);
   const [endHome, setEndHome] = useState(3)
   const [displayHomes, setDisplayHomes] = useState(allHomes.slice(startHome, endHome));
+
+  let tl0 = new TimelineLite();
+  let tl1 = new TimelineLite();
   
   useEffect(() => {
     // const imgTween = 
   }, [displayHomes]);
   
   const transform = (id) => {
-    const home = document.getElementById(id);
-    
+    const home = document.getElementById(`home-${id}`);
+    console.log(home);
     const domRect = home.getBoundingClientRect();
     console.log(domRect);
-    let tl = new TimelineLite();
 
-    tl.to(`#panel-${id}`, {
+    tl0.to('.introContainer', {
+      height: 0,
+      duration: 0
+    })
+    .to('.panels', {
+      height: '100%',
+      width: '100%',
+      duration: 0
+    })
+    .to(`#panel-${id}`, {
       height: '100%',
       width: '100%',
       position: 'fixed',
+      duration: 0,
       zIndex: 9,
       backgroundColor: 'white'
+    })
+    .to('.opaqueOverlay', {
+      opacity: 0,
+      duration: 0
     })
     .fromTo(`#home-${id}`, 
       {
         position: 'absolute',
+        top: domRect.x,
+        left: domRect.y,
         zIndex: 10,
-        height: '400px',
-        width: '400px'
+        height: domRect.bottom-domRect.y,
+        width: domRect.right-domRect.x
       }, 
       {
         position: 'absolute',
         zIndex: 10,
-        height: '500px',
-        width: '500px'
+        xPercent:-50, yPercent:-50, left:"50%", top:"50%",
+        height: '300px',
+        width: '300px'
       }
-    )
+    );
+      setTimeout(() => {
+        props.history.push(`/homes/${id}`);
+      }, 1000);
+    // setTimeout(() => {
+    //   tl1.to(".introContainer", {
+    //     height: 'calc(var(--vh, 1vh) * 5)',
+    //     duration: 0,
+    //   })
+    //   .to(`#panel-${id}`, {
+    //     height: 'auto',
+    //     width: 'auto',
+    //     position: 'relative',
+    //     duration: 0,
+    //     zIndex: 1,
+    //     backgroundColor: 'none'
+    //   })
+    //   .to('.opaqueOverlay', {
+    //     width: `33.3333vw`,
+    //     opacity: 1,
+    //     duration: 0,
+    //   })
+    //   .fromTo(`#home-${id}`, 
+    //   {
+    //     position: 'absolute',
+    //     zIndex: -1,
+    //     xPercent:-50, yPercent:-50, left:"50%", top:"50%",
+    //     height: 'auto',
+    //     width: 'auto',
+    //   },
+    //   {
+    //     position: 'relative',
+    //     width: '100%',
+    //     height: '100%',
+    //     zIndex: -1,
+    //     duration: 0.75
+    //   })
+    //   .to(".panels", {
+    //     height: '100%'
+    //   })
+      
+    // }, 1500);
+    // browserHistory.push("/path");
+
   }
 
   const imgEnter = () => {
@@ -176,4 +239,4 @@ export const Homes = () => {
   )
 }
 
-export default Homes;
+export default withRouter(Homes);
