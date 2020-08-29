@@ -1,9 +1,11 @@
 import React from 'react';
-import {TimelineLite} from 'gsap';
+import gsap, { TimelineLite } from 'gsap';
 import Close from '../icons/close.svg';
 import './Nav.scss';
 const Nav = ({ opened, setOpened }) => {
   
+  let tl = new TimelineLite();
+
   const closeNav = () => {
     gsap.to(".nav", 1, {
       height: 0,
@@ -23,10 +25,10 @@ const Nav = ({ opened, setOpened }) => {
         <div className="pages">
           <h3>Menu</h3>
           <ul>
-            <li>Services</li>
-            <li>Buy a home</li>
-            <li>Sell a home</li>
-            <li>About us</li>
+            <li id="services">Services</li>
+            <li id="buy">Buy a home</li>
+            <li id="sell">Sell a home</li>
+            <li id="aboutUs">About us</li>
           </ul>
         </div>
         <div className="contact">

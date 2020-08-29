@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Intro from '../components/Intro';
 import Homes from '../components/Homes';
 import Sell from '../components/Sell';
+import Form from '../components/Form';
 const Home = (props) => {
     return (
         <div>
@@ -12,6 +13,7 @@ const Home = (props) => {
             <Intro />
             <Homes />
             <Sell />
+            <Form />
         </div>
     )
 }

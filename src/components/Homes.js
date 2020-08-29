@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import { ReactComponent as Arrow } from '../icons/arrow-right-solid.svg';
 import './Homes.scss';
@@ -195,12 +194,12 @@ export const Homes = (props) => {
           displayHomes.map(home => {
             return (
             <div className="home" key={home.id} id={`panel-${home.id}`} onMouseEnter={imgEnter} onMouseLeave={imgLeave}>
-              <div className="details">
+              <div className="details" onClick={() => transform(home)}>
                 <p className="address">{home.address}</p>
                 <p className="pin">{home.state} - {home.pin}</p>
                 <p className="beds">{home.beds} beds, {home.baths} baths</p>
               </div>
-              <div className="detailsMobile" id={home.id}>
+              <div className="detailsMobile" id={home.id} onClick={() => transform(home)} >
                 <p className="address">{home.address}</p>
                 <p className="state">{home.state}</p>
                 <p className="pin">{home.pin}</p>
@@ -208,7 +207,7 @@ export const Homes = (props) => {
                 <p className="baths">{home.baths} baths</p>
               </div>
               <div className="propImg">
-                <div className="opaqueOverlay">
+                <div onClick={() => transform(home)} className="opaqueOverlay">
                   <div className={hovered ? "viewBtn" : "hide"}onClick={() => transform(home)}><p>View</p></div>
                 </div>
                 <img id={`home-${home.id}`} src={require(`../images/${home.id}.jpg`)} alt={`home ${home.id}`}/>
