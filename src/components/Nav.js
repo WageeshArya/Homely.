@@ -1,5 +1,5 @@
 import React from 'react';
-import gsap from 'gsap';
+import {TimelineLite} from 'gsap';
 import Close from '../icons/close.svg';
 import './Nav.scss';
 const Nav = ({ opened, setOpened }) => {
