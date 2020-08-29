@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
 import './HomeDetails.scss';
+import Details from '../components/Details';
 import { TimelineLite } from 'gsap';
 import ProgressiveImage from 'react-progressive-image';
 import Header from '../components/Header';
 const HomeDetails = (props) => {
     
-    const {id, address, pin, state, price, beds, baths, long, lat} = props.location.state.home;
+    const {id, pin, state, long, lat} = props.location.state.home;
 
     const chars = state.split("");
-    console.log(chars);
 
     const tl = new TimelineLite();
     useEffect(() => {
-        console.log(long,lat);
         tl.from('.containerDiv', 0.5, {
             opacity: 0,
             ease: 'expo.inOut'
@@ -45,8 +44,33 @@ const HomeDetails = (props) => {
                 amount: 0.3
             }   
         })
-
-        console.log(props.location.state.home);
+        .from(".location p", 0.25, {
+            opacity: 0,
+            y: 70,
+            ease: "power4.out",
+            skewY: 10,
+            stagger: {
+                amount: 0.1
+            }
+        })
+        .from(".pin p", 0.25, {
+            opacity: 0,
+            y: 70,
+            ease: "power4.out",
+            skewY: 10
+        })
+        .fromTo(".Details", 
+        {
+            opacity: 0,
+            zIndex: -2
+        },  
+        {
+            y: '145%',
+            opacity: 1,
+            // zIndex: 20,
+            duration: 0,
+            ease: 'expo.inOut'
+        })
         //eslint-disable-next-line
     }, []);
 
@@ -55,25 +79,32 @@ const HomeDetails = (props) => {
             <Header />
             
             <div className="homeDetailsImage">
-            <div className="homeState">
-                <div className="locationDetails">
-                    <div className="location">
-                        <p className="longitude">{long}</p>
-                        <p className="latitude">{lat}</p>
+                <div className="homeState">
+                    <div className="locationDetails">
+                        <div className="location">
+                            <p>{long}</p>
+                            <p>{lat}</p>
+                        </div>
+                        <div className="pin">
+                            <p>zip: {pin}</p>
+                        </div>
+                    </div>
+                    <div className="stateCharacters">
+                    {chars.map((char) => {
+                        return <h1>{`${char}`}</h1>
+                    })}
                     </div>
                 </div>
-                <div className="stateCharacters">
-                {chars.map((char) => {
-                    return <h1>{`${char}`}</h1>
-                })}
-                </div>
-            </div>
                 <ProgressiveImage src={require(`../images/${id}.jpg`)} placeholder={require(`../images/tinified/${id}.jpg`)}>
-                    {(src) => {
-                        return <img className="homeImg" src={src} />
-                    }}
+                    {(src) => (
+                        <img className="homeImg" src={src} alt="home-img" />
+                    )}
                 </ProgressiveImage>
             </div>
+            <div className="detailsContainer">
+                <Details home={props.location.state.home} />
+            </div>
+            
         </div>
     )
 }

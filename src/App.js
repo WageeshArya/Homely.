@@ -16,7 +16,6 @@ function App() {
 
     let vh = window.innerHeight* 0.1;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
-    console.log(vh);
     
 
     tl.from(".texts span", 1, {
@@ -54,8 +53,7 @@ function App() {
       setAnimCompleted(true);
     },3000);
     
-    //eslint-disable-next-line
-
+    // eslint-disable-next-line
   }, []);
 
   return (

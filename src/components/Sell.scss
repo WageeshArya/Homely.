@@ -91,7 +91,9 @@
           grid-gap: 2rem;
           height: 50%;
           margin: 5rem 0;
+          overflow: hidden;
           .quote {
+            overflow: hidden;
             height: 100%;
             background-color: $white;
             display: flex;

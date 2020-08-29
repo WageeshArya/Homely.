@@ -20,29 +20,33 @@
   }
   .navDiv {
     height: 50vh;
+  height: calc(var(--vh, 1vh) * 5);
     margin: 0 6rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     .pages {
       display: grid;
-      grid-template-rows: 1fr 6fr;
+      grid-template-rows: 1fr 5fr;
       h3 {
         display:flex;
         align-items: center;
+        margin: 0;
       }
       ul {
-        display: grid;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
         margin: 0;
-        height: 50vh;
-        height: calc(var(--vh, 1vh) * 5);
         padding: 0;
-        grid-template-rows: repeat(4, 1fr);
         li {
           display: flex;
           align-items: center;
-          line-height: 2rem;
+          height: 1rem;
           font-size: 1rem;
           font-weight: 700;
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
     }

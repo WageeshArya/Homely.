@@ -16,7 +16,8 @@ export const Homes = (props) => {
       beds: 6,
       baths: 6,
       long: 145.04922,
-      lat: 8.95112
+      lat: 8.95112,
+      desc: 'This single-owner home sits on a large lot with mature trees. It’s ready for the next owners to bring it into the 21st century.'
     },
     {
       id: 2,
@@ -27,7 +28,8 @@ export const Homes = (props) => {
       beds: 4,
       baths: 4,
       long: 52.23051,
-      lat: 32.15696
+      lat: 32.15696,
+      desc: 'It’s hard to list all the indoor and outdoor features of this stunning home. Schedule a tour today!'
     },
     {
       id: 3,
@@ -38,7 +40,8 @@ export const Homes = (props) => {
       beds: 6,
       baths: 2,
       long: 52.23051,
-      lat: 12.51396
+      lat: 12.51396,
+      desc: 'This move-in ready home has been recently updated, including new windows that provide ample of natural light. Enjoy the shaded backyard or walk to the neighborhood park down the street.'
     },
     {
       id: 4,
@@ -49,7 +52,8 @@ export const Homes = (props) => {
       beds: 6,
       baths: 4,
       long: 134.93196,
-      lat: 55.31781
+      lat: 55.31781,
+      desc: 'This stunning two-story home is on a large lot in a hot neighborhood. From the open-concept kitchen and living space to the large shaded backyard, there is plenty of room for the whole family to enjoy. Recent updates include new carpeting upstairs and stainless appliances. Situated in a family-friendly neighborhood near a great park, this home is sure to go fast!'
     },
     {
       id: 5,
@@ -60,7 +64,8 @@ export const Homes = (props) => {
       beds: 4,
       baths: 4,
       long: 117.30358,
-      lat: 53.63698
+      lat: 53.63698,
+      desc: 'The living is easy in this impressive, generously proportioned contemporary residence with lake and ocean views, located within a level stroll to the sand and surf.'
     },
     {
       id: 6,
@@ -71,7 +76,8 @@ export const Homes = (props) => {
       beds: 3,
       baths: 2,
       long: 83.25968,
-      lat: 1.44351
+      lat: 1.44351,
+      desc: 'Cool, calm and sophisticated with a youthful edge, this functional home is enveloped in light and comfort. Crisp white walls, timber floors, and high ceilings create a style as timeless as the sparkling ocean view. The calming sea vista, captured through the extensive use of glass, will help you forget your city stress.'
     }
   ];
 
@@ -83,18 +89,14 @@ export const Homes = (props) => {
   let tl0 = new TimelineLite();
   
   useEffect(() => {
-    // const imgTween = 
   }, [displayHomes]);
   
   const transform = (homeDetails) => {
 
     const { id } = homeDetails; 
-    console.log(homeDetails);
 
     const home = document.getElementById(`home-${id}`);
-    console.log(home);
     const domRect = home.getBoundingClientRect();
-    console.log(domRect);
 
     tl0.to('.introContainer', {
       height: 0,
@@ -145,56 +147,14 @@ export const Homes = (props) => {
           state: { home: homeDetails }
         });
       }, 500);
-    // setTimeout(() => {
-    //   tl1.to(".introContainer", {
-    //     height: 'calc(var(--vh, 1vh) * 5)',
-    //     duration: 0,
-    //   })
-    //   .to(`#panel-${id}`, {
-    //     height: 'auto',
-    //     width: 'auto',
-    //     position: 'relative',
-    //     duration: 0,
-    //     zIndex: 1,
-    //     backgroundColor: 'none'
-    //   })
-    //   .to('.opaqueOverlay', {
-    //     width: `33.3333vw`,
-    //     opacity: 1,
-    //     duration: 0,
-    //   })
-    //   .fromTo(`#home-${id}`, 
-    //   {
-    //     position: 'absolute',
-    //     zIndex: -1,
-    //     xPercent:-50, yPercent:-50, left:"50%", top:"50%",
-    //     height: 'auto',
-    //     width: 'auto',
-    //   },
-    //   {
-    //     position: 'relative',
-    //     width: '100%',
-    //     height: '100%',
-    //     zIndex: -1,
-    //     duration: 0.75
-    //   })
-    //   .to(".panels", {
-    //     height: '100%'
-    //   })
-      
-    // }, 1500);
-    // browserHistory.push("/path");
-
   }
 
   const imgEnter = () => {
     setHovered(true);
-    console.log(hovered);
   }
 
   const imgLeave = () => {
     setHovered(false);
-    console.log(hovered);
   }
 
   

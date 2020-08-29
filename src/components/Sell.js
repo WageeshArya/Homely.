@@ -65,7 +65,6 @@ const Sell = () => {
     quoter: 'Business Professionals'
   }
 ]
-
   const [startQuote, setStartQuote] = useState(0);
   const [endQuote, setEndQuote] = useState(3)
   const [displayQuotes, setDisplayQuotes] = useState(allQuotes.slice(startQuote, endQuote));
@@ -91,6 +90,8 @@ const Sell = () => {
     else {
       setDisplayQuotes(allQuotes.slice(startQuote, endQuote));
     }
+
+    console.log(document.querySelectorAll(".quote"));
   }
 
   return (
@@ -121,7 +122,7 @@ const Sell = () => {
                 {
                   displayQuotes.map(quote => {
                     return (
-                      <div className="quote" key={quote.id}>
+                      <div className="quote" id={`quote-${quote.id}`} key={quote.id}>
                         <p className="quoteText">"{quote.quote}"</p>
                         <p className="quoter"> <em>—</em> {quote.quoter}</p>
                       </div>

@@ -5,7 +5,6 @@ import Intro from '../components/Intro';
 import Homes from '../components/Homes';
 import Sell from '../components/Sell';
 const Home = (props) => {
-    console.log(props.animCompleted)
     return (
         <div>
             {!props.animCompleted && <IntroOverlay />}
