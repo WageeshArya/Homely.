@@ -3,7 +3,7 @@ import gsap, { TimelineLite } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Form.scss';
 const Form = () => {
-    let count = 0;
+    
     gsap.registerPlugin(ScrollTrigger);
     let tl = new TimelineLite();
     useEffect(() => {
@@ -22,7 +22,7 @@ const Form = () => {
         })
         .from(".contactText", {
             opacity: 0,
-            x: 100,
+            x: -75,
             ease: 'expo.out',
             scrollTrigger: {
                 trigger: ".contactText",
@@ -35,14 +35,17 @@ const Form = () => {
                 amount: 0.3
             }
         })
-        // tl.from("")
 
-        // const elements = [
-        //     document.getElementById("customer"),
-        //     document.getElementById("projects"),
-        //     document.getElementById("sold"),
-        //     document.getElementById("awards")
-        // ];
+        tl.to(".statBox", {
+            scrollTrigger: {
+                trigger: ".statBox",
+                start: 'top bottom',
+                toggleAction: 'play none none none',
+                onEnter: ({progress, direction, isActive}) => startCounters()
+            }
+        })
+
+        // 
         // const range = [3314, 3233, 2190, 58];
         // let stepTime, timer;
         // for(let i = 0; i < 4; i++) {
@@ -58,8 +61,38 @@ const Form = () => {
         // }
 
 
+        // eslint-disable-next-line
+    },[]);
+
+    const startCounters = () => {
         
-    },[])
+        const customer = document.getElementById("customer");
+        const projects = document.getElementById("projects");
+        const sold = document.getElementById("sold");
+        const awards = document.getElementById("awards");
+     
+        
+        countUp(3076, customer);
+        countUp(2431, projects);
+        countUp(1771, sold);
+        countUp(64, awards);
+
+    }
+
+    const countUp= (to, element) => {
+        let count = 0;
+        let stepTime = 0;
+        let timer;
+
+        stepTime = Math.abs(Math.floor(1/to));
+        timer = setInterval(() => {
+            count += 4;
+            if(count >= to) {
+                clearInterval(timer);
+            }
+            element.innerText = count;
+        })
+    }
 
     const formSubmit = (e) => {
         e.preventDefault();
@@ -85,32 +118,34 @@ const Form = () => {
             <div className="completed">
                 <img className="completedBackground" src={require('../images/homes.jpg')} alt="background"/>
                 <div>
-                    <div className="stat">
-                        <div className="statBox">
-                            <img className="completedIcons" src={require('../icons/customer.svg')} alt="happy customers"/>
-                            <p className="number" id="customer">{count}</p>
-                            <p>Happy Customers</p>    
+                    <div className="statsDivBox">
+                        <div className="stat">
+                            <div className="statBox">
+                                <img className="completedIcons" src={require('../icons/customer.svg')} alt="happy customers"/>
+                                <p className="number" id="customer"></p>
+                                <p>Happy Customers</p>    
+                            </div>
                         </div>
-                    </div>
-                    <div className="stat">
-                        <div className="statBox">
-                            <img className="completedIcons" src={require('../icons/living.svg')} alt="completed projects"/>
-                            <p className="number" id="projects">1234</p>
-                            <p>Completed Projects</p>
+                        <div className="stat">
+                            <div className="statBox">
+                                <img className="completedIcons" src={require('../icons/living.svg')} alt="completed projects"/>
+                                <p className="number" id="projects"></p>
+                                <p>Completed Projects</p>
+                            </div>
                         </div>
-                    </div>
-                    <div className="stat">
-                        <div className="statBox">
-                            <img className="completedIcons" src={require('../icons/keys.svg')} alt="sold homes"/>
-                            <p className="number" id="sold">1234</p>
-                            <p>Homes Sold</p>
+                        <div className="stat">
+                            <div className="statBox">
+                                <img className="completedIcons" src={require('../icons/keys.svg')} alt="sold homes"/>
+                                <p className="number" id="sold"></p>
+                                <p>Homes Sold</p>
+                            </div>
                         </div>
-                    </div>
-                    <div className="stat">
-                        <div className="statBox">
-                            <img className="completedIcons" src={require('../icons/medal.svg')} alt="awards won"/>
-                            <p className="number" id="awards">1234</p>
-                            <p>Awards Won</p>
+                        <div className="stat">
+                            <div className="statBox">
+                                <img className="completedIcons" src={require('../icons/medal.svg')} alt="awards won"/>
+                                <p className="number" id="awards"></p>
+                                <p>Awards Won</p>
+                            </div>
                         </div>
                     </div>
                 </div>

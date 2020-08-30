@@ -1,15 +1,14 @@
+html {
+  scroll-snap-type: block proximity;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-behavior: smooth;
+
+}
 body {
   margin: 0;
   visibility: hidden;
-  // overflow-x: hidden;
+  overflow-x: hidden;
   overflow-y: hidden;
-  scroll-behavior: smooth;
-}
-.App {
-  scroll-snap-type: y mandatory;
-  section {
-    scroll-snap-align: start;
-  }
 }
 .hide {
   display: none;

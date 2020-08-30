@@ -42,9 +42,10 @@ const HomeDetails = (props) => {
             skewY: 10,
             stagger: {
                 amount: 0.3
-            }   
+            } 
         })
-        .from(".location p", 0.25, {
+        .from(".location p", {
+            duration: 0.25,
             opacity: 0,
             y: 70,
             ease: "power4.out",
@@ -53,7 +54,8 @@ const HomeDetails = (props) => {
                 amount: 0.1
             }
         })
-        .from(".pin p", 0.25, {
+        .from(".pin p", {
+            duration: 0.25,
             opacity: 0,
             y: 70,
             ease: "power4.out",

@@ -84,12 +84,10 @@ export const Homes = (props) => {
   const [startHome, setStartHome] = useState(0);
   const [endHome, setEndHome] = useState(3)
   const [displayHomes, setDisplayHomes] = useState(allHomes.slice(startHome, endHome));
-  const [clicked, setClicked] = useState(false);
 
   let tl0 = new TimelineLite();
   
   useEffect(() => {
-    setClicked(false);
   }, [displayHomes]);
   
   const transform = (homeDetails) => {
@@ -97,60 +95,56 @@ export const Homes = (props) => {
 
     const home = document.getElementById(`home-${id}`);
     const domRect = home.getBoundingClientRect();
+  
     
-    if(clicked === false) {
-      setClicked(true);
-      tl0.to('.introContainer', {
-        height: 0,
-        duration: 0
-      })
-      .to('.panels', {
-        height: '100%',
-        width: '100%',
-        duration: 0
-      })
-      .to(`#panel-${id}`, {
-        height: '100%',
-        width: '100%',
-        position: 'fixed',
-        duration: 0,
-        zIndex: 9,
-        backgroundColor: 'white'
-      })
-      .to('.opaqueOverlay', {
-        opacity: 0,
-        duration: 0
-      })
-      .fromTo(`#home-${id}`, 
-        {
-          position: 'absolute',
-          top: domRect.x,
-          left: domRect.y,
-          zIndex: 10,
-          height: domRect.bottom-domRect.y,
-          width: domRect.right-domRect.x
-        }, 
-        {
-          position: 'absolute',
-          zIndex: 10,
-          xPercent:-50, 
-          yPercent:-50, 
-          left: "50%", 
-          top: "50%",
-          height: '300px',
-          width: '300px',
-          duration: 0.75,
-          ease: 'expo.inOut'
+    tl0.to('.introContainer', {
+      height: 0,
+      duration: 0
+    })
+    .to('.panels', {
+      height: '100%',
+      width: '100%',
+      duration: 0
+    })
+    .to(`#panel-${id}`, {
+      height: '100%',
+      width: '100%',
+      position: 'fixed',
+      duration: 0,
+      zIndex: 9,
+      backgroundColor: 'white'
+    })
+    .to('.opaqueOverlay', {
+      opacity: 0,
+      duration: 0
+    })
+    .fromTo(`#home-${id}`, 
+      {
+        position: 'absolute',
+        top: domRect.x,
+        left: domRect.y,
+        zIndex: 10,
+        height: domRect.bottom-domRect.y,
+        width: domRect.right-domRect.x
+      }, 
+      {
+        position: 'absolute',
+        zIndex: 10,
+        xPercent:-50, 
+        yPercent:-50, 
+        left: "50%", 
+        top: "50%",
+        height: '300px',
+        width: '300px',
+        duration: 0.75,
+        ease: 'expo.inOut'
+      });
+      setTimeout(() => {
+        props.history.push({
+          pathname: `/homes/${id}`,
+          state: { home: homeDetails }
         });
-        setTimeout(() => {
-          props.history.push({
-            pathname: `/homes/${id}`,
-            state: { home: homeDetails }
-          });
-        }, 750);
-    }
-    
-      
+      }, 750);
   }
 
   const imgEnter = () => {
@@ -212,7 +206,7 @@ export const Homes = (props) => {
                 <p className="baths">{home.baths} baths</p>
               </div>
               <div className="propImg">
-                <div onClick={() => transform(home)} className="opaqueOverlay">
+                <div className="opaqueOverlay">
                   <div className={hovered ? "viewBtn" : "hide"}onClick={() => transform(home)}><p>View</p></div>
                 </div>
                 <img id={`home-${home.id}`} src={require(`../images/${home.id}.jpg`)} alt={`home ${home.id}`}/>

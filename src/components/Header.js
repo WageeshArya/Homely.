@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import gsap from 'gsap';
 import Nav from './Nav';
 import './Header.scss';
@@ -18,7 +18,6 @@ export const Header = () => {
         ease: 'expo.out' 
       })
       setFirstClick(true); 
-      console.log(firstClick); 
     }
     else {
       gsap.to("nav", 1, {
@@ -32,8 +31,19 @@ export const Header = () => {
     setOpened(true);
   }
 
-  useEffect(() => {
-  },[]);
+  const highlightNav = () => {
+    gsap.to(".hamburger span", 0.15, {
+      height: '3px',
+      ease: 'expo.inOut'
+    }) 
+  }
+
+  const removeHighlight = () => {
+    gsap.to(".hamburger span", 0.15, {
+      height: '2px',
+      ease: 'expo.inOut'
+    })
+  }
 
   return (
     <Fragment>
@@ -44,7 +54,7 @@ export const Header = () => {
             <div className="logo">
               <a href="/">HOMELY.</a>
             </div>
-            <div onClick={openNav} className="hamburger">
+            <div onClick={openNav} onMouseEnter={highlightNav} onMouseLeave={removeHighlight} className="hamburger">
               <span></span>
               <span></span>
               <span></span>

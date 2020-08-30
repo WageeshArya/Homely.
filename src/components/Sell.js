@@ -90,8 +90,6 @@ const Sell = () => {
     else {
       setDisplayQuotes(allQuotes.slice(startQuote, endQuote));
     }
-
-    console.log(document.querySelectorAll(".quote"));
   }
 
   return (

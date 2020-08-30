@@ -20,7 +20,7 @@
   }
   .navDiv {
     height: 50vh;
-  height: calc(var(--vh, 1vh) * 5);
+    height: calc(var(--vh, 1vh) * 5);
     margin: 0 6rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -53,6 +53,9 @@
             font-size: 3.5rem;
             text-decoration: underline;
           }
+          @media(max-width: 500px) {
+            font-size: 0.9rem;
+          }
         }
       }
     }
@@ -67,15 +70,34 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1fr 1fr;
+        grid-gap: 1rem;
         div {
           h4 {
             font-size: 1.25rem;
-            p {
-              font-size: 1.25rem;
+              @media(max-width: 550px) {
+              font-size: 1rem;
+            }
+          }
+          p {
+            font-size: 1.25rem;
+            @media(max-width: 550px) {
+              font-size: 0.75rem;
             }
           }
         }
       }
+    }
+    @media(max-width: 900px) {
+      grid-template-columns: 1fr 2fr;
+    }
+    @media(max-width: 670px) {
+      margin: 0 3rem;
+    }
+    @media(max-width: 550px) {
+      margin: 0 2rem;
+    }
+    @media(max-width: 450px) {
+      margin: 0 1rem;
     }
   }
 }
