@@ -93,7 +93,6 @@ export const Homes = (props) => {
   }, [displayHomes]);
   
   const transform = (homeDetails) => {
-
     const { id } = homeDetails; 
 
     const home = document.getElementById(`home-${id}`);
@@ -200,12 +199,12 @@ export const Homes = (props) => {
           displayHomes.map(home => {
             return (
             <div className="home" key={home.id} id={`panel-${home.id}`} onMouseEnter={imgEnter} onMouseLeave={imgLeave}>
-              <div className="details" onClick={() => transform(home)}>
+              <div className="details">
                 <p className="address">{home.address}</p>
                 <p className="pin">{home.state} - {home.pin}</p>
                 <p className="beds">{home.beds} beds, {home.baths} baths</p>
               </div>
-              <div className="detailsMobile" id={home.id} onClick={() => transform(home)} >
+              <div className="detailsMobile" id={home.id}  >
                 <p className="address">{home.address}</p>
                 <p className="state">{home.state}</p>
                 <p className="pin">{home.pin}</p>

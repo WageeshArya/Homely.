@@ -2,6 +2,58 @@
 
 .formDiv {
     height: 100vh;
+    .formDivHead {
+        height: 50vh;
+        height: calc(var(--vh, 1vh) * 5);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        font-family: 'Open sans', serif;
+        .formText {
+            margin: 6rem;
+            margin-top: 8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            h3 {
+                font-size: 3rem;
+                margin-bottom: 0;
+            }
+            p {
+                font-size: 1.5rem;
+            }
+        }
+        form {
+            margin: 6rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            label {
+                display: block;
+                width: 75%;
+                font-family: 'Alata', serif;
+                margin: 0.5rem 0;
+            }
+            #name, #email, #request {
+                display: block;
+                width: 75%;
+                border: none;
+                border-bottom: 2px solid black;
+                line-height: 1.25rem;
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+                &:focus {
+                    outline: 0;
+                }
+            }
+            input[type='submit'] {
+                background-color: $white;
+                border: none;
+                font-size: 1.5rem;
+                margin: 1rem;
+            }
+        }
+    }
     .completed {
         bottom: 0;
         left: 0;

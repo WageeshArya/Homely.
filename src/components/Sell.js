@@ -10,10 +10,10 @@ const Sell = () => {
   useEffect(() => {
     gsap.to(sellHeader.current, {
       opacity: 1,
-      duration: 1,
       ease: 'power4.inOut',
       scrollTrigger: {
         trigger: sellHeader.current,
+        scrub: true,
         start: 'top center',
         end: 'bottom bottom-=400',
         toggleActions: 'play none none reverse'

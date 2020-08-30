@@ -3,6 +3,7 @@ body {
   visibility: hidden;
   // overflow-x: hidden;
   overflow-y: hidden;
+  scroll-behavior: smooth;
 }
 .App {
   scroll-snap-type: y mandatory;

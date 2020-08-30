@@ -11,7 +11,7 @@
             height: 38vh;
             font-size: 2.75rem;
             .locationDetails {
-                overflow: hidden;
+                overflow-y: hidden;
                 font-size: 1rem;
                 width: 100%;
                 display: flex;
@@ -19,17 +19,28 @@
                 .location {
                     overflow: hidden;
                     margin: 0 6rem;
+                    @media(max-width: 900px) {
+                        margin: 0 0 2rem 2rem;
+                    }
                     p {
-                        overflow: hidden;
                         margin: 0 6rem;
+                        @media(max-width: 900px) {
+                            margin: 0;
+                        }
                     }
                 }
                 .pin {
                     overflow: hidden;
                     margin: 0 6rem;
+                    @media(max-width: 900px) {
+                        margin: 0 2rem 2rem 0;
+                    }
                     p {
                         overflow: hidden;
                         margin: 0 6rem;
+                        @media(max-width: 900px) {
+                            margin: 0;  
+                        }
                     }
                 }
             }
@@ -41,6 +52,10 @@
                     text-align: center;
                     text-transform: uppercase;
                     margin: 0 0.15rem;
+                    @media(max-width: 550px) {
+                        margin: 0;
+                        font-size: 3rem;
+                    }
                 }
             }
             
