@@ -207,7 +207,7 @@ export const Homes = (props) => {
               </div>
               <div className="propImg">
                 <div className="opaqueOverlay">
-                  <div className={hovered ? "viewBtn" : "hide"}onClick={() => transform(home)}><p>View</p></div>
+                  <div className={hovered ? "viewBtn" : "wideHide viewBtn"}onClick={() => transform(home)}><p>View</p></div>
                 </div>
                 <img id={`home-${home.id}`} src={require(`../images/${home.id}.jpg`)} alt={`home ${home.id}`}/>
               </div>
