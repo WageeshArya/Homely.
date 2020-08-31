@@ -8,18 +8,34 @@ const Sell = () => {
 
   gsap.registerPlugin(ScrollTrigger);
   useEffect(() => {
-    gsap.to(sellHeader.current, {
-      y: 50,
-      opacity: 1,
-      ease: 'power4.inOut',
-      scrollTrigger: {
-        trigger: sellHeader.current,
-        scrub: true,
-        start: 'top center',
-        end: 'bottom bottom-=400',
-        toggleActions: 'play none none reverse'
+    if(window.innerWidth > 450) {
+      gsap.to(sellHeader.current, {
+        y: 50,
+        opacity: 1,
+        ease: 'power4.inOut',
+        scrollTrigger: {
+          trigger: sellHeader.current,
+          scrub: true,
+          start: 'top center',
+          end: 'bottom bottom-=400',
+          toggleActions: 'play none none reverse'
+        }
+      })
+    }
+    else if(window.innerWidth <= 450) {
+      gsap.to(sellHeader.current, {
+        y: -25,
+        opacity: 1,
+        ease: 'power4.inOut',
+        scrollTrigger: {
+          trigger: sellHeader.current,
+          scrub: true,
+          start: 'top center',
+          end: 'bottom bottom-=400',
+          toggleActions: 'play none none reverse'
+        }
       }
-    })
+      )}
     gsap.from(homeIcon.current, {
       x: 50,
       opacity: 0,
