@@ -12,7 +12,10 @@ const HomeDetails = (props) => {
 
     const tl = new TimelineLite();
     useEffect(() => {
-        tl.from('.containerDiv', 0.5, {
+        tl.to(".coverDetails", {
+            display: 'none'
+        })
+        .from('.containerDiv', 0.5, {
             opacity: 0,
             ease: 'expo.inOut'
         })
@@ -21,6 +24,7 @@ const HomeDetails = (props) => {
             position: 'absolute',
             xPercent: -50,
             yPercent: -50,
+            zIndex: 5,
             top: '50%',
             left: '50%',
             width: '300px',
@@ -69,15 +73,16 @@ const HomeDetails = (props) => {
         {
             y: '145%',
             opacity: 1,
-            // zIndex: 20,
             duration: 0,
             ease: 'expo.inOut'
         })
+
         //eslint-disable-next-line
     }, []);
 
     return (
         <div className="HomeDetails">
+            <div className="coverDetails"></div>
             <Header />
             
             <div className="homeDetailsImage">

@@ -4,6 +4,9 @@
   scroll-snap-align: start;
   height: 50vh;
   height: calc(var(--vh, 1vh) * 5);
+  @media(min-width: 2385px) {
+    height: 50vh;
+  }
   background-color: $white;
   .introText {
     height: 35vh;

@@ -35,12 +35,20 @@ export const Header = () => {
     gsap.to(".hamburger span", 0.15, {
       height: '3px',
       ease: 'expo.inOut'
-    }) 
+    })
+    gsap.to("#hamburgerMidSpan", 0.25, {
+      width: '100%',
+      ease: 'expo.inOut'
+    })
   }
 
   const removeHighlight = () => {
     gsap.to(".hamburger span", 0.15, {
       height: '2px',
+      ease: 'expo.inOut'
+    })
+    gsap.to("#hamburgerMidSpan", 0.25, {
+      width: '75%',
       ease: 'expo.inOut'
     })
   }
@@ -56,7 +64,7 @@ export const Header = () => {
             </div>
             <div onClick={openNav} onMouseEnter={highlightNav} onMouseLeave={removeHighlight} className="hamburger">
               <span></span>
-              <span></span>
+              <span id="hamburgerMidSpan"></span>
               <span></span>
             </div>
           </div>

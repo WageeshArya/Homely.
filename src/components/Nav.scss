@@ -2,6 +2,9 @@
 .nav {
   height: 50vh;
   height: calc(var(--vh, 1vh) * 5);
+  @media(min-width: 2385px) {
+    height: 50vh;
+  }
   position: fixed;
   top: 0;
   left: 0;
@@ -17,10 +20,19 @@
     &:hover {
       cursor: pointer;
     }
+    img {
+      transition: all 0.25s ease-in-out;
+      &:hover {
+        transform: rotate(180deg);
+      }
+    }
   }
   .navDiv {
     height: 50vh;
     height: calc(var(--vh, 1vh) * 5);
+    @media(min-width: 2385px) {
+      height: 50vh;
+    }
     margin: 0 6rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -50,7 +62,6 @@
           &:hover {
             cursor: pointer;
             font-weight: 800;
-            font-size: 3.5rem;
             text-decoration: underline;
           }
           @media(max-width: 500px) {
@@ -73,13 +84,13 @@
         grid-gap: 1rem;
         div {
           h4 {
-            font-size: 1.25rem;
+            font-size: 1rem;
               @media(max-width: 550px) {
-              font-size: 1rem;
+              font-size: 0.9rem;
             }
           }
           p {
-            font-size: 1.25rem;
+            font-size: 1rem;
             @media(max-width: 550px) {
               font-size: 0.75rem;
             }

@@ -5,6 +5,9 @@
     .formDivHead {
         height: 50vh;
         height: calc(var(--vh, 1vh) * 5);
+        @media(min-width: 2385px) {
+            height: 50vh;
+        }
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         font-family: 'Open sans', serif;

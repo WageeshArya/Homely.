@@ -1,10 +1,8 @@
 import React from 'react';
-import gsap, { TimelineLite } from 'gsap';
+import gsap from 'gsap';
 import Close from '../icons/close.svg';
 import './Nav.scss';
 const Nav = ({ opened, setOpened }) => {
-  
-  let tl = new TimelineLite();
 
   const closeNav = () => {
     gsap.to(".nav", 1, {

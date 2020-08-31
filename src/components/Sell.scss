@@ -31,6 +31,9 @@
         @media(max-width: 700px) {
           font-size: 1rem;
         }
+        @media(min-width: 2385px) {
+          width: 100%;
+      }
       }
     }
     .homeIcon {
@@ -57,6 +60,9 @@
   .quotesFullDiv {
     height: 50vh;
     height: calc(var(--vh, 1vh) * 5);
+    @media(min-width: 2385px) {
+      height: 50vh;
+    }
     display: grid;
     grid-template-columns: 1.5fr 3fr;
     div {
@@ -69,6 +75,9 @@
           height: auto;
           width: 100%;
         }
+        @media(min-width: 2385px) {
+          height: 50vh;
+      }
       }
       @media(max-width: 1350px) {
         display: flex;

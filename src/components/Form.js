@@ -45,22 +45,6 @@ const Form = () => {
             }
         })
 
-        // 
-        // const range = [3314, 3233, 2190, 58];
-        // let stepTime, timer;
-        // for(let i = 0; i < 4; i++) {
-        //     stepTime = Math.abs(Math.floor(1 / range[i]));
-        //     timer = setInterval(() => {
-        //         count ++;
-        //         if (count >= range[i]) {
-        //             clearInterval(timer);
-        //         }
-        //         elements[i].innerText = count;
-        //     }, stepTime);
-        //     count=0;
-        // }
-
-
         // eslint-disable-next-line
     },[]);
 
@@ -76,13 +60,11 @@ const Form = () => {
         countUp(2431, projects);
         countUp(1771, sold);
         countUp(64, awards);
-
     }
 
     const countUp= (to, element) => {
         let count = 0;
-        let stepTime = 0;
-        let timer;
+        let timer, stepTime;
 
         stepTime = Math.abs(Math.floor(1/to));
         timer = setInterval(() => {
@@ -91,7 +73,7 @@ const Form = () => {
                 clearInterval(timer);
             }
             element.innerText = count;
-        })
+        }, stepTime);
     }
 
     const formSubmit = (e) => {
