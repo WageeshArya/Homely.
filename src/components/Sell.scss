@@ -23,6 +23,16 @@
         @media(max-width: 700px) {
           font-size: 1.75rem;
         }
+        @media(max-width: 600px) {
+          font-size: 1.5rem;
+        }
+        @media(max-width: 450px) {
+          font-size: 1rem;
+          margin-left: 2rem;
+        }
+      }
+      @media(max-width: 450px) {
+        justify-content: flex-end;
       }
       .sellh4 {
         margin-top: 0;
@@ -33,7 +43,11 @@
         }
         @media(min-width: 2385px) {
           width: 100%;
-      }
+        }
+        @media(max-width: 450px) {
+          font-size: 0.75rem;
+          margin-left: 1rem;
+        }
       }
     }
     .homeIcon {
@@ -55,6 +69,9 @@
     }
     @media(max-width: 850px) {
       margin: 2rem;
+    }
+    @media(max-width: 450px) {
+      margin: 7.5vh 1rem 0 1rem;
     }
   }
   .quotesFullDiv {
@@ -144,6 +161,9 @@
               @media(max-width: 700px) {
                 font-size: 0.75rem;
               }
+              @media(max-width: 450px) {
+                font-size: 0.5rem;
+              }
             }
             .quoter {
               text-align: center;
@@ -151,9 +171,15 @@
               @media(max-width: 700px) {
                 font-size: 0.7rem;
               }
+              @media(max-width: 450px) {
+                font-size: 0.4rem;
+              } 
             }
             @media(max-width: 1350px) {
               padding: 0;
+            }
+            @media(max-width: 450px) {
+              padding: 0.5rem 0;
             }
           }
           @media(max-width: 700px) {

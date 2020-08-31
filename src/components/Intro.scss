@@ -7,6 +7,9 @@
   @media(min-width: 2385px) {
     height: 50vh;
   }
+  @media(max-width: 700px) {
+    height: 50vh;
+  }
   background-color: $white;
   .introText {
     height: 35vh;
