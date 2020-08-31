@@ -2,9 +2,12 @@
 
 .formDiv {
     height: 100vh;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
     .formDivHead {
         height: 50vh;
         height: calc(var(--vh, 1vh) * 5);
+        // height: 100%;
         @media(min-width: 2385px) {
             height: 50vh;
         }
@@ -15,7 +18,7 @@
         grid-template-columns: repeat(2, 1fr);
         font-family: 'Open sans', serif;
         .formText {
-            margin: 6rem;
+            margin: 4rem;
             margin-top: 8rem;
             margin-left: 0;
             display: flex;

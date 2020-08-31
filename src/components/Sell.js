@@ -9,7 +9,7 @@ const Sell = () => {
   gsap.registerPlugin(ScrollTrigger);
   useEffect(() => {
     gsap.to(sellHeader.current, {
-      y: -50,
+      y: 50,
       opacity: 1,
       ease: 'power4.inOut',
       scrollTrigger: {
