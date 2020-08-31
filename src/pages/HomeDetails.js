@@ -24,7 +24,7 @@ const HomeDetails = (props) => {
             position: 'absolute',
             xPercent: -50,
             yPercent: -50,
-            zIndex: 5,
+            zIndex: 1,
             top: '50%',
             left: '50%',
             width: '300px',

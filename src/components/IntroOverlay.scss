@@ -36,6 +36,9 @@
     @media(min-width: 2385px) {
       height: 50vh;
     }
+    @media(max-width: 450px) {
+      padding: 0.5rem 0;
+    }
     position: absolute;
     bottom: 0;
     width: 100%;
