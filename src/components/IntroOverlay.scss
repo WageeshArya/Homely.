@@ -5,7 +5,8 @@
     height: calc(var(--vh, 1vh) * 5);
     @media(min-width: 2385px) {
       height: 50vh;
-  }
+    }
+     
     position: absolute;
     width: 100%;
     z-index: 5;
@@ -37,7 +38,7 @@
       height: 50vh;
     }
     @media(max-width: 450px) {
-      padding: 0.5rem 0;
+      height: 50vh;
     }
     position: absolute;
     bottom: 0;
